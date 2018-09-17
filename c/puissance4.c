@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <stdio.h>
 
 int x=6;
@@ -7,7 +8,7 @@ char *playersym[2] = {"x\0", "o\0"};
 char *matrix[6][6];
 int nbjeton = 36;
 int winner = 0;
-int col  = 0;
+int col = 0;
 
 int check_dir(int dx,int dy, int ligne, int col){
 	int result=0;
@@ -47,9 +48,15 @@ void showgame(){
 }
 
 int playgame(){
+	char *p, s[10];
 	int ligne = 0;
 	printf("Please choose a colum : ");
-	scanf("%d", &col);
+	while (fgets(s, sizeof(s), stdin)) {
+		col = strtol(s, &p, 10);
+		if (p == s || *p != '\n') {
+			printf("Try Again : ");
+		} else break;
+	}
 	col%=x;
 	while( matrix[ligne][col] == " \0" && x>ligne){
 		ligne++;
