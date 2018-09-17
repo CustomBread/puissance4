@@ -90,7 +90,7 @@ public class Puissance4 {
 	}
 	public static void initclient(){
 		for(int i= 0;i<2;i++){
-			System.out.print(joueurs[i].getnom() + "local/remote ?");
+			System.out.print("Welcome "+joueurs[i].getnom() + "\nWould you linke to play [LOCAL]|[remote] ?");
 			Scanner in = new Scanner(System.in);
 			String ins = in.nextLine();
 			System.out.println("getting :" + ins); 
